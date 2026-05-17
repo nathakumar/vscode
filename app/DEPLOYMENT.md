@@ -2,7 +2,7 @@
 
 ## Overview
 
-AI Studio uses **Electron Builder** for packaging and **GitHub Releases** for distribution. A single command builds the app and publishes installers for Windows, macOS, and Linux. Auto-updates are built in via `electron-updater`.
+AI Studio uses **Electron Builder** for packaging and **GitHub Releases** for distribution. A single command builds the app and publishes installers for Windows and Linux. Auto-updates are built in via `electron-updater`.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ AI Studio uses **Electron Builder** for packaging and **GitHub Releases** for di
 
 ### Set the Token
 
-**Linux / macOS:**
+**Linux:**
 ```bash
 export GH_TOKEN=your_github_personal_access_token
 ```
@@ -51,12 +51,8 @@ $env:GH_TOKEN = "your_github_personal_access_token"
 ```bash
 cd app
 
-# Build for current platform
-npm run package
-
 # Platform-specific
 npm run package:win
-npm run package:mac
 npm run package:linux
 ```
 
@@ -67,16 +63,9 @@ Output goes to `app/dist/`.
 ```bash
 cd app
 
-# All platforms (current OS)
-npm run publish
-
 # Platform-specific
 npm run publish:win
-npm run publish:mac
 npm run publish:linux
-
-# Or use the shorthand
-npm run release
 ```
 
 This will:
@@ -174,7 +163,6 @@ When an update is available:
 | Platform | File | Location |
 |---|---|---|
 | Windows | `AI Studio-{version}-Setup.exe` | `app/dist/` |
-| macOS | `AI Studio-{version}-mac.dmg` | `app/dist/` |
 | Linux | `AI Studio-{version}-linux.AppImage` | `app/dist/` |
 
 ## Security Rules
@@ -192,9 +180,6 @@ Set the environment variable before running publish commands.
 
 ### "Cannot find module 'electron-updater'"
 Run `npm install` in the `app/` directory.
-
-### macOS code signing errors
-For distribution, you need an Apple Developer certificate. For local testing, builds work unsigned.
 
 ### Linux AppImage won't run
 Make it executable: `chmod +x AI-Studio-*.AppImage`
