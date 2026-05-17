@@ -15,7 +15,6 @@ npm install
 ### Missing Icons
 Ensure that the following icons exist in `app/resources/`:
 - `icon.ico` (Windows)
-- `icon.icns` (macOS)
 - `icon.png` (Linux)
 
 ## Release Failures
@@ -33,7 +32,6 @@ The release workflow only triggers on tags matching `app-v*`. Ensure you are usi
 ### Logs
 Check the application logs for errors. Logs are stored in the user data directory:
 - Windows: `%APPDATA%\AI Studio\app.log`
-- macOS: `~/Library/Application Support/AI Studio/app.log`
 - Linux: `~/.config/AI Studio/app.log`
 
 ### Whitescreen on Startup

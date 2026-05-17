@@ -89,7 +89,6 @@ npm run package
 
 # Platform-specific builds
 npm run package:win    # Windows .exe
-npm run package:mac    # macOS .dmg
 npm run package:linux  # Linux AppImage
 ```
 
@@ -136,9 +135,7 @@ This bumps the version, tags, pushes, and GitHub Actions builds + publishes inst
 ### Manual Publish
 
 ```bash
-npm run publish          # Build + publish to GitHub Releases
 npm run publish:win      # Windows only
-npm run publish:mac      # macOS only
 npm run publish:linux    # Linux only
 ```
 

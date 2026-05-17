@@ -41,7 +41,7 @@ nsis:
 
 publish:
   provider: github
-  owner: nathakumar
+  owner: vengidusamim-star
   repo: vscode
   releaseType: release
   # Default channel is latest (stable). For beta/nightly, use prerelease versions.

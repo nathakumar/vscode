@@ -3,7 +3,6 @@ name: Build and Validate AI Studio
 on:
   push:
     branches: [ main ]
-    tags: [ 'app-v*' ]
   pull_request:
     branches: [ main ]
 
@@ -23,18 +22,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libkrb5-dev libx11-dev libxkbfile-dev
-
-      - name: Diagnostics
-        run: |
-          echo "Node version: $(node -v)"
-          echo "npm version: $(npm -v)"
-          echo "Current directory: $(pwd)"
-          ls -R app/scripts
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -47,7 +34,14 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libkrb5-dev
+          sudo apt-get install -y libkrb5-dev libx11-dev libxkbfile-dev
+
+      - name: Diagnostics
+        run: |
+          echo "Node version: $(node -v)"
+          echo "npm version: $(npm -v)"
+          echo "Current directory: $(pwd)"
+          ls -R app/scripts
 
       - name: Install root dependencies
         run: npm ci
